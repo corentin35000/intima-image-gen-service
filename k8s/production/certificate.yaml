@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: prod-intima-fooocus-cert
+  namespace: prod-intima-fooocus
+spec:
+  secretName: prod-intima-fooocus-tls
+  dnsNames:
+    - fooocus.crzcommon.com
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: prod-intima-fooocus-pvc
+  namespace: prod-intima-fooocus
+  labels:
+    app: prod-intima-fooocus
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5000Gi

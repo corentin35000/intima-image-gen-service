@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prod-intima-fooocus-service
+  namespace: prod-intima-fooocus
+spec:
+  ports:
+    - port: 7865
+      targetPort: 7865
+  selector:
+    app: prod-intima-fooocus

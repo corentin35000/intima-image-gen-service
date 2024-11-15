@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: prod-intima-fooocus-ingress
+  namespace: prod-intima-fooocus
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - fooocus.crzcommon.com
+      secretName: letsencrypt-production
+  rules:
+    - host: fooocus.crzcommon.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: '/'
+            backend:
+              service:
+                name: prod-intima-fooocus-service
+                port:
+                  number: 7865
